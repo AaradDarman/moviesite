@@ -1,0 +1,7 @@
+.owl-p {
+  padding: 10px 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
