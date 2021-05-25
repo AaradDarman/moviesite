@@ -1,8 +1,11 @@
 import React from "react";
 
+import MainLayout from "../components/layouts/MainLayout";
+
 const MovieSite = (props) => {
   return (
-    <div>initial</div>
+    <MainLayout {...props}>
+    </MainLayout>
   );
 };
 
