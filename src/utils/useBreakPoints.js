@@ -19,9 +19,11 @@ function useMediaQuery(query) {
 export default function useBreakpoints() {
   const breakpoints = {
     isXs: useMediaQuery("(max-width: 576px)"),
-    isSm: useMediaQuery("(min-width: 577px) and (max-width: 768px)"),
-    isMd: useMediaQuery("(min-width: 769px) and (max-width: 993px)"),
-    isLg: useMediaQuery("(min-width: 994px)"),
+    // isSm: useMediaQuery("(min-width: 577px) and (max-width: 768px)"),
+    isSm: useMediaQuery("(min-width: 577px)"),
+    // isMd: useMediaQuery("(min-width: 769px) and (max-width: 993px)"),
+    isMd: useMediaQuery("(min-width: 769px)"),
+    isLg: useMediaQuery("(min-width: 993px)"),
     active: "xs",
   };
   if (breakpoints.isXs) breakpoints.active = "xs";
