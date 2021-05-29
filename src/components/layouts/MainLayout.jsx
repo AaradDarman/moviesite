@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Button, FormGroup, InputGroup } from "@blueprintjs/core";
+import { Button, Icon, FormGroup, InputGroup } from "@blueprintjs/core";
 
 import Toggle from "../Toggler";
 import useBreakpoints from "../../utils/useBreakPoints";
-import DropDownMenu from "../shared/DropDownMenu";
+import { SwipeableDrawer } from "@material-ui/core";
+import NavigationMenu from "../NavigationMenu";
 
 const HeaderContainer = styled.header`
   display: block;
@@ -82,6 +83,40 @@ const LoginButton = styled.button`
   }
 `;
 
+const SideDrawer = styled(SwipeableDrawer)`
+  .MuiPaper-root {
+    background-color: ${({ theme }) => theme.primary.main};
+    color: ${({ theme }) => theme.text};
+    padding: 0 0.5rem;
+  }
+  nav#mobile-nav-menu {
+    display: flex;
+    flex-direction: column;
+    min-width: 210px;
+    background-color: inherit;
+    color: inherit;
+    box-shadow: none;
+    font-size: 1rem;
+  }
+  .nav-button {
+    background-color: inherit;
+    color: inherit;
+    box-shadow: none;
+    justify-content: flex-end;
+    background-image: none;
+    font-size: inherit;
+  }
+  .nav-button:hover {
+    background-color: ${({ theme }) => theme.primary.main};
+    color: ${({ theme }) => theme.secondary.main};
+    box-shadow: none;
+  }
+`;
+
+const DrawerMenuIcon = styled(Icon)`
+  cursor: pointer;
+`;
+
 const filmDownload = {
   menuTitle: "دانلود فیلم",
   totalLink: "/category/film",
@@ -109,6 +144,18 @@ const seriesArchive = {
 
 const MainLayout = ({ children, theme, toggleTheme }) => {
   const { isXs, isSm, isMd, isLg, active } = useBreakpoints();
+
+  useEffect(() => {
+    setDrawerState(false);
+  }, [active]);
+
+  const [drawerState, setDrawerState] = useState(false);
+  const closeDrawer = () => {
+    setDrawerState(false);
+  };
+  const openDrawer = () => {
+    setDrawerState(true);
+  };
   return (
     <>
       <HeaderContainer isLight={theme === "light" ? true : false}>
@@ -135,26 +182,18 @@ const MainLayout = ({ children, theme, toggleTheme }) => {
           <a href="/" id="logo" title="">
             <img src="/images/logo.svg" alt="Logo" />
           </a>
+          <DrawerMenuIcon
+            className="d-block d-md-none"
+            icon="menu"
+            iconSize={30}
+            onClick={setDrawerState}
+          />
         </div>
-        <nav className="d-none d-md-flex">
-          <Button
-            className="menu-button-d"
-            text="صفحه اصلی"
-            // onClick={() => console.log(menuData.totalLink)}
-          />
-          <DropDownMenu menuData={filmDownload} />
-          <DropDownMenu menuData={seriesArchive} />
-          <Button
-            className="menu-button-d"
-            text="سوالات متداول"
-            // onClick={() => console.log(menuData.totalLink)}
-          />
-          <Button
-            className="menu-button-d"
-            text="تماس با ما"
-            // onClick={() => console.log(menuData.totalLink)}
-          />
-        </nav>
+        <NavigationMenu
+          drawerState={drawerState}
+          close={closeDrawer}
+          open={openDrawer}
+        />
       </HeaderContainer>
       {children}
     </>
