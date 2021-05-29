@@ -4,11 +4,7 @@ import Carousel from "../components/Carousel";
 import MainLayout from "../components/layouts/MainLayout";
 
 const MovieSite = (props) => {
-  return (
-    <MainLayout {...props}>
-      <Carousel {...props} />
-    </MainLayout>
-  );
+  return <MainLayout {...props}></MainLayout>;
 };
 
 export default MovieSite;

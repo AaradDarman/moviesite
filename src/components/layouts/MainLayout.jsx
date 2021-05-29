@@ -6,6 +6,8 @@ import Toggle from "../Toggler";
 import useBreakpoints from "../../utils/useBreakPoints";
 import { SwipeableDrawer } from "@material-ui/core";
 import NavigationMenu from "../NavigationMenu";
+import Carousel from "../Carousel";
+import SpeceficPosts from "../shared/SpeceficPosts";
 
 const HeaderContainer = styled.header`
   display: block;
@@ -117,30 +119,17 @@ const DrawerMenuIcon = styled(Icon)`
   cursor: pointer;
 `;
 
-const filmDownload = {
-  menuTitle: "دانلود فیلم",
-  totalLink: "/category/film",
-  items: [
-    { title: "برترین فیلم ها", link: "/category/top-movies" },
-    { title: "آرشیو کالکشن بهترین فیلم ها", link: "/category/best-movies" },
-    { title: "250 فیلم برتر Imdb", link: "/category/top-250-imdb-movies" },
-    { title: "250 فیلم برتر هندی", link: "/category/top-250-indian-movies" },
-    { title: "فیلم های 2019", link: "/category/2019" },
-    { title: "فیلم های 2020", link: "/category/2020" },
-  ],
-};
-const seriesArchive = {
-  menuTitle: "آرشیو سریال ها",
-  totalLink: "/category/series",
-  items: [
-    { title: "برترین سریال ها", link: "/category/top-series" },
-    { title: "250 سریال برتر Imdb", link: "/category/top-250-imdb-series" },
-    { title: "سریال دوبله فارسی", link: "/category/dubbed-series" },
-    { title: "سریال ایرانی", link: "/category/ir-series" },
-    { title: "سریال خارجی", link: "/category/khareji-series" },
-    { title: "سریال کره ای", link: "/category/corean-series" },
-  ],
-};
+const lastDubbedFilms = [
+  { title: "Hangover", imageUrl: "/images/movie1.jpg", imdbRate: "6.2" },
+  {
+    title: "Millions Dollor Baby",
+    imageUrl: "/images/movie2.jpg",
+    imdbRate: "7.2",
+  },
+  { title: "Top Gun", imageUrl: "/images/movie3.jpg", imdbRate: "5.1" },
+  { title: "The Super Deep", imageUrl: "/images/movie4.jpg", imdbRate: "3.2" },
+  { title: "Platform", imageUrl: "/images/movie5.jpg", imdbRate: "8.5" },
+];
 
 const MainLayout = ({ children, theme, toggleTheme }) => {
   const { isXs, isSm, isMd, isLg, active } = useBreakpoints();
@@ -195,7 +184,19 @@ const MainLayout = ({ children, theme, toggleTheme }) => {
           open={openDrawer}
         />
       </HeaderContainer>
-      {children}
+      <Carousel {...theme} />
+      <div className="px-3 px-lg-5">
+        <div className="row">
+          <aside className="col-12 col-lg-4">
+            <SpeceficPosts
+              title="آخرین فیلم های دوبله"
+              iconUrl="/images/translation.svg"
+              items={lastDubbedFilms}
+            />
+          </aside>
+          <content className="col-12 col-lg-8">{children}</content>
+        </div>
+      </div>
     </>
   );
 };

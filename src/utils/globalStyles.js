@@ -20,4 +20,10 @@ export const GlobalStyles = createGlobalStyle`
   button:focus {
     outline: none;
   }
+  a {
+    text-decoration: none !important;
+  }
+  a:hover{
+    color: inherit;
+  }
   `;
