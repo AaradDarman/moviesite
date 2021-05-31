@@ -9,6 +9,7 @@ import NavigationMenu from "../NavigationMenu";
 import Carousel from "../Carousel";
 import SpeceficPosts from "../shared/SpeceficPosts";
 import UpSeries from "../shared/UpSeries";
+import Footer from "../Footer";
 
 const HeaderContainer = styled.header`
   display: block;
@@ -207,6 +208,7 @@ const MainLayout = ({ children, theme, toggleTheme }) => {
           </aside>
           <content className="col-12 col-lg-8">{children}</content>
         </div>
+        <Footer />
       </div>
     </>
   );

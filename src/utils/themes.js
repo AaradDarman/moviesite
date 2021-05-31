@@ -1,4 +1,5 @@
 export const lightTheme = {
+  isDark: false,
   body: "#E2E2E2",
   text: "#1a1a1f",
   primary: { main: "#E2E2E2", light: "#ffffff", dark: "#b0b0b0" },
@@ -9,6 +10,7 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
+  isDark: true,
   body: "#1a1a1f",
   text: "#bfbfbf",
   primary: { main: "#1a1a1f", light: "#404046", dark: "#000000" },
