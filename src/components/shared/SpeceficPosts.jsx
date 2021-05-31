@@ -3,8 +3,6 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import styled from "styled-components";
-import MovieCard from "../MovieCard";
-import { Typography } from "@material-ui/core";
 
 const BoxContainer = styled.section`
   display: flex;
@@ -141,7 +139,7 @@ const Item = styled.a`
 
 const SpeceficPosts = ({ iconUrl, title, items }) => {
   return (
-    <BoxContainer className="mb-3">
+    <BoxContainer className="mb-3 bp3-card">
       <TitleContainer>
         <TitleIcon iconUrl={iconUrl} />
         <Title>{title}</Title>

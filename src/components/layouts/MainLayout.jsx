@@ -8,6 +8,7 @@ import { SwipeableDrawer } from "@material-ui/core";
 import NavigationMenu from "../NavigationMenu";
 import Carousel from "../Carousel";
 import SpeceficPosts from "../shared/SpeceficPosts";
+import UpSeries from "../shared/UpSeries";
 
 const HeaderContainer = styled.header`
   display: block;
@@ -85,36 +86,6 @@ const LoginButton = styled.button`
   }
 `;
 
-const SideDrawer = styled(SwipeableDrawer)`
-  .MuiPaper-root {
-    background-color: ${({ theme }) => theme.primary.main};
-    color: ${({ theme }) => theme.text};
-    padding: 0 0.5rem;
-  }
-  nav#mobile-nav-menu {
-    display: flex;
-    flex-direction: column;
-    min-width: 210px;
-    background-color: inherit;
-    color: inherit;
-    box-shadow: none;
-    font-size: 1rem;
-  }
-  .nav-button {
-    background-color: inherit;
-    color: inherit;
-    box-shadow: none;
-    justify-content: flex-end;
-    background-image: none;
-    font-size: inherit;
-  }
-  .nav-button:hover {
-    background-color: ${({ theme }) => theme.primary.main};
-    color: ${({ theme }) => theme.secondary.main};
-    box-shadow: none;
-  }
-`;
-
 const DrawerMenuIcon = styled(Icon)`
   cursor: pointer;
 `;
@@ -129,6 +100,34 @@ const lastDubbedFilms = [
   { title: "Top Gun", imageUrl: "/images/movie3.jpg", imdbRate: "5.1" },
   { title: "The Super Deep", imageUrl: "/images/movie4.jpg", imdbRate: "3.2" },
   { title: "Platform", imageUrl: "/images/movie5.jpg", imdbRate: "8.5" },
+];
+
+const upSeries = [
+  {
+    updateText: "دوبله قسمت آخر فصل دوم اضافه شد",
+    title: "The Mighty Ducks",
+    imageUrl: "/images/series1.jpg",
+  },
+  {
+    updateText: "فصل 04 - قسمت 04 اضافه شد",
+    title: "BlackList",
+    imageUrl: "/images/series2.jpg",
+  },
+  {
+    updateText: "فصل 02 - قسمت 02 اضافه شد",
+    title: "Van Helsing",
+    imageUrl: "/images/series3.jpg",
+  },
+  {
+    updateText: "فصل 05 - قسمت 07 اضافه شد",
+    title: "Dynasty",
+    imageUrl: "/images/series4.jpg",
+  },
+  {
+    updateText: "فصل 08 - قسمت 19 اضافه شد",
+    title: "War Of The Worlds",
+    imageUrl: "/images/series5.jpg",
+  },
 ];
 
 const MainLayout = ({ children, theme, toggleTheme }) => {
@@ -192,6 +191,18 @@ const MainLayout = ({ children, theme, toggleTheme }) => {
               title="آخرین فیلم های دوبله"
               iconUrl="/images/translation.svg"
               items={lastDubbedFilms}
+            />
+            <SpeceficPosts
+              title="فیلم های 2021"
+              option="مشاهده همه"
+              iconUrl="/images/new.svg"
+              items={lastDubbedFilms}
+            />
+            <UpSeries
+              title="سریال های بروز شده"
+              iconUrl="/images/refresh.svg"
+              appTheme={theme}
+              items={upSeries}
             />
           </aside>
           <content className="col-12 col-lg-8">{children}</content>
