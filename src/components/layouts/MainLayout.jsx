@@ -10,6 +10,7 @@ import Carousel from "../Carousel";
 import SpeceficPosts from "../shared/SpeceficPosts";
 import UpSeries from "../shared/UpSeries";
 import Footer from "../Footer";
+import MovieCategory from "../MovieCategory";
 
 const HeaderContainer = styled.header`
   display: block;
@@ -205,6 +206,7 @@ const MainLayout = ({ children, theme, toggleTheme }) => {
               appTheme={theme}
               items={upSeries}
             />
+            <MovieCategory />
           </aside>
           <content className="col-12 col-lg-8">{children}</content>
         </div>
