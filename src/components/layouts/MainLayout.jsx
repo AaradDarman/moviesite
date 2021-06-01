@@ -8,7 +8,7 @@ import { SwipeableDrawer } from "@material-ui/core";
 import NavigationMenu from "../NavigationMenu";
 import Carousel from "../Carousel";
 import SpeceficPosts from "../shared/SpeceficPosts";
-import UpSeries from "../shared/UpSeries";
+import UpSeries from "../UpSeries";
 import Footer from "../Footer";
 import MovieCategory from "../MovieCategory";
 
@@ -206,7 +206,25 @@ const MainLayout = ({ children, theme, toggleTheme }) => {
               appTheme={theme}
               items={upSeries}
             />
+            <SpeceficPosts
+              title="برترین فیلم ها"
+              option="مشاهده همه"
+              iconUrl="/images/best.svg"
+              items={lastDubbedFilms}
+            />
+            <SpeceficPosts
+              title="فیلم های بزودی"
+              option="مشاهده همه"
+              iconUrl="/images/soon.svg"
+              items={lastDubbedFilms}
+            />
             <MovieCategory />
+            <SpeceficPosts
+              title="آخرین فیلم های ایرانی"
+              option="مشاهده همه"
+              iconUrl="/images/new.svg"
+              items={lastDubbedFilms}
+            />
           </aside>
           <content className="col-12 col-lg-8">{children}</content>
         </div>
