@@ -14,7 +14,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.primary.main};
     color: ${({ theme }) => theme.text};
-    font-family:"BYekan";
+    font-family:"BYekan",Arial, sans-serif;
     transition: all 0.50s linear;
   }
   button:focus {
