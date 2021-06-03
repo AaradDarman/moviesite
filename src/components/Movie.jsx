@@ -49,7 +49,7 @@ const RightSide = styled.div`
     overflow: hidden;
     line-height: 40px;
     margin-top: 1rem;
-    padding-right: 3rem;
+    padding-right: 10px;
     background-color: ${hexToRGBA("#1a1a1f", 0.2)};
   }
   span > span {
@@ -155,7 +155,7 @@ const LeftSide = styled.div`
     font-weight: bolder;
     text-transform: uppercase;
   }
-  ul > li :first-child > i {
+  ul > li:first-child > i {
     font-size: 2rem;
     width: 30px;
     color: ${({ theme }) => theme.accent};
@@ -256,7 +256,7 @@ const Movie = ({ film }) => {
   return (
     <Wraper className="rtl bp3-card mb-3">
       <div className="row">
-        <RightSide className="col-12 col-lg-4">
+        <RightSide className="col-12 col-lg-5 col-xl-4">
           <div className="img-wraper">
             <a href="">
               <img src={film.imgUrl} alt="" className="w-100 h-100" />
@@ -273,7 +273,7 @@ const Movie = ({ film }) => {
               ))
             : null}
         </RightSide>
-        <LeftSide className="col-12 col-lg-8">
+        <LeftSide className="col-12 col-lg-7 col-xl-8">
           <h2 className="flex-column flex-lg-row my-2 my-lg-0">
             <a href="">
               <i className="fas fa-film mr-1"></i>دانلود فیلم {film.title}
