@@ -1,31 +1,32 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "@blueprintjs/core";
 
 import DropDownMenu from "./shared/DropDownMenu";
 
 const filmDownload = {
-  menuTitle: "دانلود فیلم",
-  totalLink: "/category/film",
+  menuTitle: "فیلم",
+  totalLink: "/movie",
   items: [
-    { title: "برترین فیلم ها", link: "/category/top-movies" },
-    { title: "آرشیو کالکشن بهترین فیلم ها", link: "/category/best-movies" },
-    { title: "250 فیلم برتر Imdb", link: "/category/top-250-imdb-movies" },
-    { title: "250 فیلم برتر هندی", link: "/category/top-250-indian-movies" },
-    { title: "فیلم های 2019", link: "/category/2019" },
-    { title: "فیلم های 2020", link: "/category/2020" },
+    { title: "برترین فیلم ها", link: "/movie/top-movies" },
+    { title: "آرشیو کالکشن بهترین فیلم ها", link: "/movie/best-movies" },
+    { title: "250 فیلم برتر Imdb", link: "/movie/top-250-imdb-movies" },
+    { title: "250 فیلم برتر هندی", link: "/movie/top-250-indian-movies" },
+    { title: "فیلم های 2019", link: "/movie/2019" },
+    { title: "فیلم های 2020", link: "/movie/2020" },
   ],
 };
 const seriesArchive = {
-  menuTitle: "آرشیو سریال ها",
-  totalLink: "/category/series",
+  menuTitle: "سریال",
+  totalLink: "/tv-show",
   items: [
-    { title: "برترین سریال ها", link: "/category/top-series" },
-    { title: "250 سریال برتر Imdb", link: "/category/top-250-imdb-series" },
-    { title: "سریال دوبله فارسی", link: "/category/dubbed-series" },
-    { title: "سریال ایرانی", link: "/category/ir-series" },
-    { title: "سریال خارجی", link: "/category/khareji-series" },
-    { title: "سریال کره ای", link: "/category/corean-series" },
+    { title: "برترین سریال ها", link: "/tv-show/top-series" },
+    { title: "250 سریال برتر Imdb", link: "/tv-show/top-250-imdb-series" },
+    { title: "سریال دوبله فارسی", link: "/tv-show/dubbed-series" },
+    { title: "سریال ایرانی", link: "/tv-show/ir-series" },
+    { title: "سریال خارجی", link: "/tv-show/khareji-series" },
+    { title: "سریال کره ای", link: "/tv-show/corean-series" },
   ],
 };
 
@@ -54,11 +55,9 @@ const NavigationMenu = () => {
   return (
     <NavContainer>
       <nav className="d-none d-md-flex">
-        <Button
-          className="menu-button-d"
-          text="صفحه اصلی"
-          // onClick={() => console.log(menuData.totalLink)}
-        />
+        <Link to="/" className="bp3-button menu-button-d">
+          صفحه اصلی
+        </Link>
         <DropDownMenu menuData={filmDownload} />
         <DropDownMenu menuData={seriesArchive} />
         <Button
