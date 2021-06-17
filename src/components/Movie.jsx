@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles, Tooltip } from "@material-ui/core";
 import styled, { useTheme } from "styled-components";
 import { hexToRGBA, LightenDarkenColor } from "../utils/colorConverter";
+import { Link, useRouteMatch } from "react-router-dom";
+import { Collapse, Button, Menu } from "@blueprintjs/core";
 
 const Wraper = styled.article`
   direction: rtl;
@@ -433,6 +435,7 @@ const Movie = ({ film }) => {
     },
   });
 
+  const match = useRouteMatch();
   const classes = useStyles();
   return (
     <Wraper className="rtl bp3-card mb-3">
