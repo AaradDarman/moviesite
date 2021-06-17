@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Collapse, Pre, Button, MenuItem, Menu } from "@blueprintjs/core";
+import { Collapse, Button, Menu } from "@blueprintjs/core";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const CollapseContainer = styled.div`
   background-color: ${({ theme, open }) => (open ? theme.primary.light : null)};
@@ -32,15 +33,23 @@ const CollapseContainer = styled.div`
   }
 `;
 
-const CollapseMenu = ({ menuData }) => {
+const CollapseMenu = ({ menuData, onLinkClick }) => {
   const [open, setOpen] = useState(false);
   return (
-    <CollapseContainer open={open}>
+    <CollapseContainer>
       <Button onClick={() => setOpen(!open)}>{menuData.menuTitle}</Button>
-      <Collapse isOpen={open}>
+      <Collapse keepChildrenMounted={true} isOpen={open}>
         <Menu>
           {menuData.items.map((item) => (
-            <MenuItem href={item.link} text={item.title} />
+            <li>
+              <Link
+                onClick={onLinkClick}
+                className="bp3-menu-item rtl"
+                to={item.link}
+              >
+                {item.title}
+              </Link>
+            </li>
           ))}
         </Menu>
       </Collapse>
