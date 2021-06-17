@@ -429,9 +429,9 @@ const Movie = ({ film }) => {
               <img src={film.imgUrl} alt="" className="w-100 h-100" />
             </a>
           </div>
-          {film.specialOffers.length > 0
+          {film.specialOffers && film.specialOffers.length > 0
             ? film.specialOffers.map((specialOffer) => (
-                <span className='special-offer'>
+                <span className="special-offer">
                   {specialOffer}{" "}
                   <span>
                     <i className="fas fa-check-circle"></i>
