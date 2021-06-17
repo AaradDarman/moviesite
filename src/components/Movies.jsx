@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
+import { useRouteMatch } from "react-router-dom";
 import styled from "styled-components";
 
 import Movie from "./Movie";
@@ -43,6 +44,7 @@ const Wraper = styled.div`
 const Movies = ({ items, onPageChange = () => {}, totalItems }) => {
   const [perPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
+  const match = useRouteMatch();
 
   const handlePageChange = (data) => {
     let selected = data.selected;
@@ -53,6 +55,12 @@ const Movies = ({ items, onPageChange = () => {}, totalItems }) => {
       behavior: "smooth",
     });
   };
+
+  useEffect(() => {
+    console.log("on match");
+    setCurrentPage(1);
+  }, [match.params.category]);
+
   const { isLg } = useBreakpoints();
 
   const archiveMovies = paginate(items, currentPage, perPage);
@@ -65,6 +73,7 @@ const Movies = ({ items, onPageChange = () => {}, totalItems }) => {
         previousLabel={<i class="fas fa-angle-double-right"></i>}
         nextLabel={<i class="fas fa-angle-double-left"></i>}
         breakLabel={"..."}
+        forcePage={currentPage - 1}
         breakClassName={"break-me"}
         pageCount={Math.ceil(totalItems / perPage)}
         marginPagesDisplayed={1}
