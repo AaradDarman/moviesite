@@ -89,6 +89,20 @@ const LeftSide = styled.div`
   h2 > a:hover {
     color: ${({ theme }) => LightenDarkenColor(theme.text, 70)};
   }
+  h2 > a > .tv {
+    width: 20px;
+    height: 20px;
+    background-color: ${({ theme }) => theme.text};
+    -webkit-mask: url("/images/tv-screen.svg");
+    mask: url("/images/tv-screen.svg");
+    display: inline-block;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+  }
   h2 > button {
     display: flex;
     align-items: center;
