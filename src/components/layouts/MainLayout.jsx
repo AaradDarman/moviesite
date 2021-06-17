@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Button, Icon, FormGroup, InputGroup } from "@blueprintjs/core";
+import { Button, FormGroup, InputGroup } from "@blueprintjs/core";
 
 import Toggle from "../Toggler";
 import useBreakpoints from "../../utils/useBreakPoints";
-import { SwipeableDrawer } from "@material-ui/core";
 import NavigationMenu from "../NavigationMenu";
 import Carousel from "../Carousel";
 import SpeceficPosts from "../shared/SpeceficPosts";
 import UpSeries from "../UpSeries";
 import Footer from "../Footer";
 import MovieCategory from "../MovieCategory";
+import DrawerMenu from "../DrawerMenu";
 
 const HeaderContainer = styled.header`
   display: block;
@@ -37,23 +37,6 @@ const HeaderContainer = styled.header`
   #logo img {
     height: 100%;
     width: 100px;
-  }
-  nav {
-    display: flex;
-    flex-direction: row-reverse;
-    padding: 1rem 4.8rem 1rem 0;
-  }
-  nav .menu-button-d {
-    background-color: ${({ theme }) => theme.primary.main};
-    color: ${({ theme }) => theme.text};
-    background-image: none;
-    box-shadow: none;
-    font-size: 1rem;
-  }
-  nav .menu-button-d:hover {
-    background-color: ${({ theme }) => theme.primary.main};
-    color: ${({ theme }) => theme.secondary.main};
-    box-shadow: none;
   }
 `;
 
@@ -88,12 +71,8 @@ const LoginButton = styled.button`
   }
 `;
 
-const DrawerMenuIcon = styled(Icon)`
-  cursor: pointer;
-`;
-
 const lastDubbedFilms = [
-  { title: "Hangover", imageUrl: "/images/movie1.jpg", imdbRate: "6.2" },
+  { title: "Hangover", imageUrl: "/images/m5.jpg", imdbRate: "6.2" },
   {
     title: "Millions Dollor Baby",
     imageUrl: "/images/movie2.jpg",
@@ -101,7 +80,7 @@ const lastDubbedFilms = [
   },
   { title: "Top Gun", imageUrl: "/images/movie3.jpg", imdbRate: "5.1" },
   { title: "The Super Deep", imageUrl: "/images/movie4.jpg", imdbRate: "3.2" },
-  { title: "Platform", imageUrl: "/images/movie5.jpg", imdbRate: "8.5" },
+  { title: "Platform", imageUrl: "/images/m4.jpg", imdbRate: "8.5" },
 ];
 
 const upSeries = [
@@ -132,20 +111,11 @@ const upSeries = [
   },
 ];
 
-const MainLayout = ({ children, theme, toggleTheme }) => {
-  const { isXs, isSm, isMd, isLg, active } = useBreakpoints();
+const MainLayout = (props) => {
+  const { isMd } = useBreakpoints();
 
-  useEffect(() => {
-    setDrawerState(false);
-  }, [active]);
+  const { children, theme, toggleTheme, location } = props;
 
-  const [drawerState, setDrawerState] = useState(false);
-  const closeDrawer = () => {
-    setDrawerState(false);
-  };
-  const openDrawer = () => {
-    setDrawerState(true);
-  };
   return (
     <>
       <HeaderContainer isLight={theme === "light" ? true : false}>
@@ -155,7 +125,7 @@ const MainLayout = ({ children, theme, toggleTheme }) => {
             <Toggle
               className="d-none d-md-flex ml-2"
               theme={theme}
-              toggleTheme={toggleTheme}
+              toggle={toggleTheme}
             />
           </div>
           <FormGroup
@@ -173,17 +143,10 @@ const MainLayout = ({ children, theme, toggleTheme }) => {
             <img src="/images/logo.svg" alt="Logo" />
           </a>
           <DrawerMenuIcon
-            className="d-block d-md-none"
-            icon="menu"
-            iconSize={30}
-            onClick={setDrawerState}
-          />
+          <DrawerMenu {...props} />
         </div>
         <NavigationMenu
-          drawerState={drawerState}
-          close={closeDrawer}
-          open={openDrawer}
-        />
+        <NavigationMenu />
       </HeaderContainer>
       <Carousel {...theme} />
       <div className="px-3 px-lg-5">

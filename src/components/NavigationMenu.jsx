@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Button, Icon, FormGroup, InputGroup } from "@blueprintjs/core";
-import { SwipeableDrawer } from "@material-ui/core";
+import { Button } from "@blueprintjs/core";
+
 import DropDownMenu from "./shared/DropDownMenu";
-import CollapseMenu from "./shared/CollapseMenu";
 
 const filmDownload = {
   menuTitle: "دانلود فیلم",
@@ -30,39 +29,30 @@ const seriesArchive = {
   ],
 };
 
-const SideDrawer = styled(SwipeableDrawer)`
-  .MuiPaper-root {
+const NavContainer = styled.div`
+  nav {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 1rem 4.8rem 1rem 0;
+  }
+  nav .menu-button-d {
     background-color: ${({ theme }) => theme.primary.main};
     color: ${({ theme }) => theme.text};
-    padding: 0 0.5rem;
-  }
-  nav#mobile-nav-menu {
-    display: flex;
-    flex-direction: column;
-    min-width: 210px;
-    background-color: inherit;
-    color: inherit;
+    background-image: none;
     box-shadow: none;
     font-size: 1rem;
   }
-  .nav-button {
-    background-color: inherit;
-    color: inherit;
-    box-shadow: none;
-    justify-content: flex-end;
-    background-image: none;
-    font-size: inherit;
-  }
-  .nav-button:hover {
+  nav .menu-button-d:hover {
     background-color: ${({ theme }) => theme.primary.main};
     color: ${({ theme }) => theme.secondary.main};
     box-shadow: none;
   }
 `;
 
-const NavigationMenu = ({ drawerState, open, close }) => {
+
+const NavigationMenu = () => {
   return (
-    <>
+    <NavContainer>
       <nav className="d-none d-md-flex">
         <Button
           className="menu-button-d"
@@ -82,22 +72,7 @@ const NavigationMenu = ({ drawerState, open, close }) => {
           // onClick={() => console.log(menuData.totalLink)}
         />
       </nav>
-      <SideDrawer
-        className="d-block d-md-none"
-        anchor="right"
-        open={drawerState}
-        onClose={close}
-        onOpen={open}
-      >
-        <nav id="mobile-nav-menu">
-          <Button className="nav-button" text="صفحه اصلی" />
-          <CollapseMenu menuData={filmDownload} />
-          <CollapseMenu menuData={seriesArchive} />
-          <Button className="nav-button" text="سوالات متداول" />
-          <Button className="nav-button" text="تماس با ما" />
-        </nav>
-      </SideDrawer>
-    </>
+    </NavContainer>
   );
 };
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { func, string } from "prop-types";
 import styled from "styled-components";
-// Import a couple of SVG files we'll use in the design: https://www.flaticon.com
 import { ReactComponent as MoonIcon } from "../assets/moon.svg";
 import { ReactComponent as SunIcon } from "../assets/sun.svg";
 
@@ -39,13 +38,13 @@ const ToggleContainer = styled.button`
   }
 `;
 
-const Toggle = ({ theme, toggleTheme, className }) => {
+const Toggle = ({ theme, toggle, className }) => {
   const lightTheme = theme === "light";
   return (
     <ToggleContainer
       className={className}
       lightTheme={lightTheme}
-      onClick={toggleTheme}
+      onClick={toggle}
     >
       <SunIcon />
       <MoonIcon />
