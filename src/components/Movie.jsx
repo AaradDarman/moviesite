@@ -276,7 +276,13 @@ const Movie = ({ film }) => {
         <LeftSide className="col-12 col-lg-7 col-xl-8">
           <h2 className="flex-column flex-lg-row my-2 my-lg-0">
             <a href="">
-              <i className="fas fa-film mr-1"></i>دانلود فیلم {film.title}
+              <i
+                className={
+                  film.type === "movie" ? "fas fa-film mr-1" : "tv mr-1"
+                }
+              ></i>
+              {film.type === "movie" ? "دانلود فیلم " : "دانلود سریال "}
+              {film.title}
             </a>
             <button>
               <i className="far fa-bookmark"></i>
