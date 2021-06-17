@@ -189,7 +189,9 @@ const MainLayout = (props) => {
               items={lastDubbedFilms}
             />
           </aside>
-          <content className="col-12 col-lg-8">{children}</content>
+          <content className="col-12 col-lg-8 p-lg-0 pl-lg-2 order-0 order-lg-1">
+            {children}
+          </content>
         </div>
         <Footer />
       </div>
