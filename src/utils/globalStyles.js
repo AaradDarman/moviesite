@@ -1,13 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
-  @font-face {
+  /* @font-face {
     font-family: "BYekan";
     src: url("fonts/BYekan-webfont.eot") format("eot"),
       url("fonts/BYekan-webfont.ttf") format("ttf"),
       url("fonts/BYekan-webfont.woff") format("woff");
     font-style: normal;
     font-weight: normal;
-  }
+  } */
   *{
     box-sizing: border-box;
   }

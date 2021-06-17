@@ -18,12 +18,10 @@ function App() {
 
   return (
     <ThemeProvider theme={themeMode}>
-      <>
+      <BrowserRouter basename="/">
         <GlobalStyles />
-        <BrowserRouter>
           <MovieSite theme={theme} toggleTheme={toggleTheme} />
-        </BrowserRouter>
-      </>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
