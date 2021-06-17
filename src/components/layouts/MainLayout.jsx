@@ -10,6 +10,7 @@ import SpeceficPosts from "../shared/SpeceficPosts";
 import UpSeries from "../UpSeries";
 import Footer from "../Footer";
 import MovieCategory from "../MovieCategory";
+import BreadCrumbs from "../BreadCrumbs";
 import DrawerMenu from "../DrawerMenu";
 
 const HeaderContainer = styled.header`
@@ -151,7 +152,12 @@ const MainLayout = (props) => {
       {location.pathname === "/" ? <Carousel {...theme} /> : null}
       <div className="px-3 px-lg-5">
         <div className="row">
-          <aside className="col-12 col-lg-4">
+          {location.pathname !== "/" ? (
+            <BreadCrumbs className="col-12 px-3 px-lg-0" />
+          ) : null}
+        </div>
+        <div className="row">
+          <aside className="col-12 col-lg-4 p-lg-0 pr-lg-2 order-1 order-lg-0">
             <SpeceficPosts
               title="آخرین فیلم های دوبله"
               iconUrl="/images/translation.svg"
