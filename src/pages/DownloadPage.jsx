@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Movie from "../components/Movie";
+import RelatedPosts from "../components/RelatedPosts";
 import { setMovie } from "../redux/actions/movie";
 
 const DownloadPage = ({ match }) => {
@@ -36,6 +37,7 @@ const DownloadPage = ({ match }) => {
   return (
     <>
       <Movie film={movie} />
+      <RelatedPosts movie={movie} />
     </>
   );
 };
