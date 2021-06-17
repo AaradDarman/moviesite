@@ -490,11 +490,12 @@ const Movie = ({ film }) => {
             </li>
             <li>
               <strong>بازیگران</strong>
-              {film.actors.map((actor) => (
-                <>
-                  <a href={`/actor/${actor}`}>{`${actor}, `}</a>
-                </>
-              ))}
+              {film.actors &&
+                film.actors.map((actor) => (
+                  <>
+                    <a href={`/actor/${actor}`}>{`${actor}, `}</a>
+                  </>
+                ))}
             </li>
             {film.ageRate && (
               <Tooltip
