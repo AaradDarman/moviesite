@@ -228,9 +228,6 @@ const Wraper = styled.div`
     margin-right: 0;
     margin-left: 20px;
   }
-  .bp3-tab-panel {
-    /* margin: 0; */
-  }
 `;
 
 const Schedules = ({ items }) => {
@@ -311,6 +308,15 @@ const WeeklySchedule = () => {
     setCategories(result);
     setSelectedTab(schedule[4].title);
   }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSelectedTab(schedule[3].title);
+      console.log("This will run after 1 second!");
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Wraper className="bp3-card mb-3">
       <TabView
