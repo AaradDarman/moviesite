@@ -148,7 +148,7 @@ const MainLayout = (props) => {
         <NavigationMenu
         <NavigationMenu />
       </HeaderContainer>
-      <Carousel {...theme} />
+      {location.pathname === "/" ? <Carousel {...theme} /> : null}
       <div className="px-3 px-lg-5">
         <div className="row">
           <aside className="col-12 col-lg-4">
