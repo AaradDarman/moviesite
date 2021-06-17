@@ -471,11 +471,12 @@ const Movie = ({ film }) => {
             </li>
             <li>
               <strong>ژانر</strong>
-              {film.genres.map((genre) => (
-                <>
-                  <a href={`/genre/${genre}`}>{`${genre}, `}</a>
-                </>
-              ))}
+              {film.genres &&
+                film.genres.map((genre) => (
+                  <>
+                    <a href={`/genre/${genre}`}>{`${genre}, `}</a>
+                  </>
+                ))}
             </li>
             <li>
               <strong>سال انتشار</strong>
