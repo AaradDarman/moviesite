@@ -1,13 +1,18 @@
 import React from "react";
-import MainLayout from "../components/layouts/MainLayout";
+import { useSelector } from "react-redux";
 import Movies from "../components/Movies";
 import WeeklySchedule from "../components/WeeklySchedule";
 
-const Index = () => {
+const Index = (props) => {
+  const { movies } = useSelector((state) => state);
   return (
     <>
       <WeeklySchedule />
-      <Movies />
+      <Movies
+        items={movies}
+        totalItems={100}
+        {...props}
+      />
     </>
   );
 };
