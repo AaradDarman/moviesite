@@ -482,7 +482,13 @@ const Movie = ({ film }) => {
               <a href="">{film.year}</a>
             </li>
             <li>
-              <strong>محصول</strong> <a href="">{film.country}</a>
+              <strong>محصول</strong>
+              {film.country &&
+                film.country.map((country) => (
+                  <>
+                    <a href={`/country/${country}`}>{`${country}, `}</a>
+                  </>
+                ))}
             </li>
             <li>
               <strong>کارگردان</strong>
