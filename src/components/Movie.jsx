@@ -496,15 +496,16 @@ const Movie = ({ film }) => {
                 </>
               ))}
             </li>
-            <Tooltip
-              classes={classes}
-              test="sokol"
-              title="رده سنی"
-              arrow
-              placement="right"
-            >
-              <li>{film.ageRate}</li>
-            </Tooltip>
+            {film.ageRate && (
+              <Tooltip
+                classes={classes}
+                title="رده سنی"
+                arrow
+                placement="right"
+              >
+                {<li className="age-rate">{film.ageRate}</li>}
+              </Tooltip>
+            )}
           </ul>
         </LeftSide>
       </div>
