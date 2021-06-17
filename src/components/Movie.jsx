@@ -21,7 +21,7 @@ const RightSide = styled.div`
     display: block;
   }
   a::after {
-    content: "asdaf";
+    content: "";
     display: block;
     width: 100%;
     height: 100%;
@@ -157,14 +157,15 @@ const LeftSide = styled.div`
     color: ${({ theme }) =>
       theme.isDark ? theme.secondary.dark : theme.secondary.main};
   }
-  li:last-of-type {
+  .age-rate {
     position: absolute;
     top: 10px;
-    left: 0;
+    left: 2px;
     font-family: Arial, sans-serif;
     border: 1px solid ${({ theme }) => theme.text};
     border-radius: 0.2rem;
     padding: 0 0.5rem;
+    text-transform: uppercase;
   }
   ul > li:nth-child(2) > span {
     display: inline-block;
@@ -451,9 +452,9 @@ const Movie = ({ film }) => {
       <div className="row">
         <RightSide className="col-12 col-lg-5 col-xl-4">
           <div className="img-wraper">
-            <a href="">
+            <Link to={`/${film.type}/download/${film.title}`}>
               <img src={film.imgUrl} alt="" className="w-100 h-100" />
-            </a>
+            </Link>
           </div>
           {film.specialOffers && film.specialOffers.length > 0
             ? film.specialOffers.map((specialOffer) => (
