@@ -16,7 +16,17 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
     font-family:"BYekan",Arial, sans-serif;
     transition: all 0.50s linear;
+    caret-color:${({ theme }) => theme.accent};
   }
+  ::-moz-selection { /* Code for Firefox */
+  color:${({ theme }) => theme.secondary.main};
+  background:${({ theme }) => theme.accent};
+}
+
+::selection {
+  color:${({ theme }) => theme.secondary.main};
+  background:${({ theme }) => theme.accent};
+}
   button:focus {
     outline: none;
   }
