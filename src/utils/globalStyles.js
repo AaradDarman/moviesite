@@ -36,4 +36,12 @@ export const GlobalStyles = createGlobalStyle`
   a:hover{
     color: inherit;
   }
+  .bp3-menu,.bp3-popover2 .bp3-popover2-content{
+    background:${({ theme }) => theme.primary.main};
+    color:${({ theme }) => theme.text};
+  }
+  .bp3-menu li:hover{
+    color:${({ theme }) =>
+      theme.isDark ? theme.secondary.dark : theme.secondary.main};
+  }
   `;
