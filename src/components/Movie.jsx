@@ -4,6 +4,7 @@ import styled, { useTheme } from "styled-components";
 import { hexToRGBA, LightenDarkenColor } from "../utils/colorConverter";
 import { Link, useRouteMatch } from "react-router-dom";
 import { Collapse, Button, Menu } from "@blueprintjs/core";
+import ImageGallery from "./ImageGallery";
 
 const Wraper = styled.article`
   direction: rtl;
@@ -544,6 +545,11 @@ const Movie = ({ film }) => {
       </SummaryWraper>
       {match.params.title ? (
         <DownloadSection>
+          {film.imageGallery && (
+            <ImageGallery
+              imageGallery={film.imageGallery.map((img) => `/images/${img}`)}
+            />
+          )}
           {film.trailerLink ? (
             <a href={film.trailerLink} className="trailer-link">
               {film.type === "movie"
