@@ -71,7 +71,7 @@ const Item = ({ item }) => {
       padding-right: 4px;
       line-height: 30px;
       text-align: right;
-      color: ${({ theme }) => theme.text};
+      color: ${({ theme }) => (theme.isDark ? theme.text : "#fff")};
       background: rgb(26, 26, 31);
       background: linear-gradient(
         0deg,
@@ -102,7 +102,6 @@ const Item = ({ item }) => {
   return (
     <Tooltip
       classes={classes}
-      test="sokol"
       title={`دانلود سریال ${item.title}`}
       arrow
       placement="right"
