@@ -546,7 +546,7 @@ const Movie = ({ film }) => {
           </li>
           <li>
             <i class="far fa-comment"></i>
-            {`${film.comments} دیدگاه`}
+            {film.comments ? `${film.comments} دیدگاه` : `بدون دیدگاه`}
           </li>
         </ul>
         <a className="align-self-center align-self-lg-center" href="">
