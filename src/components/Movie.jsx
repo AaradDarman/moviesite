@@ -417,6 +417,14 @@ const Footer = styled.footer`
     border-radius: 0 1rem 1rem 1rem;
     padding: 3px 1.1rem;
   }
+  .short-link {
+    border-radius: 0.3rem;
+    border: 1px solid ${({ theme }) => theme.text};
+    user-select: all;
+    cursor: pointer;
+    margin-left: 5px;
+    padding: 0.2rem 0.5rem;
+  }
 `;
 
 const Movie = ({ film }) => {
@@ -581,9 +589,26 @@ const Movie = ({ film }) => {
             {film.comments ? `${film.comments} دیدگاه` : `بدون دیدگاه`}
           </li>
         </ul>
-        <a className="align-self-center align-self-lg-center" href="">
-          ادامه مطلب <span>دانلود</span>
-        </a>
+        {!match.params.title ? (
+          <Link
+            className="align-self-center align-self-lg-center"
+            to={`/${film.type}/download/${film.title}`}
+          >
+            ادامه مطلب <span>دانلود</span>
+          </Link>
+        ) : (
+          <div>
+            <span className="short-link">\\apples\oranges\pears</span>
+            <Tooltip
+              classes={classes}
+              title="لینک کوتاه"
+              arrow
+              placement="right"
+            >
+              <i className="fas fa-link mr-2"></i>
+            </Tooltip>
+          </div>
+        )}
       </Footer>
     </Wraper>
   );
