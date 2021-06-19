@@ -271,8 +271,8 @@ const Schedules = ({ items }) => {
   `;
   return (
     <Wraper>
-      {items.map((item) => (
-        <div className="d-flex flex-row">
+      {items.map((item, index) => (
+        <div key={index} className="d-flex flex-row">
           <a href="">
             <img src={item.imgUrl} alt="" />
           </a>
@@ -303,7 +303,7 @@ const WeeklySchedule = () => {
   useEffect(() => {
     const result = schedule.map((sch) => ({
       ...sch,
-      panel: <Schedules items={sch.series} />,
+      panel: <Schedules key={sch.id} items={sch.series} />,
     }));
     setCategories(result);
     setSelectedTab(schedule[4].title);

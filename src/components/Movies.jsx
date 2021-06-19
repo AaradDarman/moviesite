@@ -67,7 +67,7 @@ const Movies = ({ items, onPageChange = () => {}, totalItems }) => {
   return (
     <Wraper>
       {archiveMovies.map((movie) => (
-        <Movie film={movie} />
+        <Movie key={movie._id} film={movie} />
       ))}
       <ReactPaginate
         previousLabel={<i class="fas fa-angle-double-right"></i>}

@@ -177,9 +177,10 @@ const SpeceficPosts = ({ iconUrl, title, items }) => {
           },
         }}
       >
-        {items.map((item) => (
+        {items.map((item, index) => (
           <Item
-          // href={`/${item.title}`}
+            // href={`/${item.title}`}
+            key={index}
           >
             <img src={item.imageUrl} alt={item.title} />
             <span>

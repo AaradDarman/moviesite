@@ -24,8 +24,13 @@ const TabView = ({ data, selectedTabId, onChange, ...other }) => {
       onChange={onChange}
       {...other}
     >
-      {data.map((item) => (
-        <Tab id={item.title} title={item.title} panel={item.panel} />
+      {data.map((item, index) => (
+        <Tab
+          key={index}
+          id={item.title}
+          title={item.title}
+          panel={item.panel}
+        />
       ))}
     </Tabs>
   );

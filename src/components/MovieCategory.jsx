@@ -100,8 +100,8 @@ const CategoriesComponent = ({ categories }) => {
   `;
   return (
     <Wraper>
-      {categories.map((cat) => (
-        <Category className="col-3">
+      {categories.map((cat, index) => (
+        <Category key={index} className="col-3">
           <a>{cat}</a>
         </Category>
       ))}
@@ -176,7 +176,7 @@ const MovieCategory = () => {
   useEffect(() => {
     const result = categoriesData.map((item) => ({
       ...item,
-      panel: <CategoriesComponent categories={item.categories} />,
+      panel: <CategoriesComponent key={item.id} categories={item.categories} />,
     }));
     setCategories(result);
     setSelectedTab(categoriesData[0].title);

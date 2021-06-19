@@ -123,8 +123,8 @@ const UpSeries = ({ iconUrl, title, items, theme }) => {
         <SeeMore>مشاهده همه</SeeMore>
       </TitleContainer>
       <Content>
-        {items.map((item) => (
-          <Item item={item} />
+        {items.map((item, index) => (
+          <Item key={index} item={item} />
         ))}
       </Content>
     </BoxContainer>

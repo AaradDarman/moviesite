@@ -35,7 +35,7 @@ const ImageGallery = ({ imageGallery }) => {
     <Wraper>
       {imageGallery &&
         imageGallery.map((img, index) => (
-          <ImageItem img={img} onClick={() => handleClick(index)}>
+          <ImageItem img={img} key={index} onClick={() => handleClick(index)}>
             <div></div>
           </ImageItem>
         ))}

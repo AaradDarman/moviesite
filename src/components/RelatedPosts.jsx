@@ -112,8 +112,8 @@ const RelatedPosts = ({ movie }) => {
             },
           }}
         >
-          {movie.relatedMovies.map((item) => (
-            <Item>
+          {movie.relatedMovies.map((item, index) => (
+            <Item key={index}>
               <img src={item.imageUrl} alt={item.title} />
             </Item>
           ))}

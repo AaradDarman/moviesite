@@ -40,8 +40,8 @@ const CollapseMenu = ({ menuData, onLinkClick }) => {
       <Button onClick={() => setOpen(!open)}>{menuData.menuTitle}</Button>
       <Collapse keepChildrenMounted={true} isOpen={open}>
         <Menu>
-          {menuData.items.map((item) => (
-            <li>
+          {menuData.items.map((item, index) => (
+            <li key={index}>
               <Link
                 onClick={onLinkClick}
                 className="bp3-menu-item rtl"

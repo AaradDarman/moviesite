@@ -33,8 +33,8 @@ const DropDownMenu = ({ menuData, location }) => {
   const CMenu = ({ items }) => {
     return (
       <Menu>
-        {items.map((item) => (
-          <li>
+        {items.map((item, index) => (
+          <li key={index}>
             <Link
               className="bp3-menu-item rtl"
               to={item.link}

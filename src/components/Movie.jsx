@@ -357,8 +357,8 @@ const DownloadLinks = ({ item }) => {
       <Collapse isOpen={open}>
         <Menu>
           {item.linkItems &&
-            item.linkItems.map((link) => (
-              <li>
+            item.linkItems.map((link, index) => (
+              <li key={index}>
                 <div className="bp3-menu-item rtl">
                   <span>{`کیفیت ${link.resolution}`}</span>
                   <span>{`فرمت: ${link.format}`}</span>
@@ -457,8 +457,8 @@ const Movie = ({ film }) => {
             </Link>
           </div>
           {film.specialOffers && film.specialOffers.length > 0
-            ? film.specialOffers.map((specialOffer) => (
-                <span className="special-offer">
+            ? film.specialOffers.map((specialOffer, index) => (
+                <span key={index} className="special-offer">
                   {specialOffer}{" "}
                   <span>
                     <i className="fas fa-check-circle"></i>
@@ -499,10 +499,8 @@ const Movie = ({ film }) => {
             <li>
               <strong>ژانر</strong>
               {film.genres &&
-                film.genres.map((genre) => (
-                  <>
-                    <a href={`/genre/${genre}`}>{`${genre}, `}</a>
-                  </>
+                film.genres.map((genre,index) => (
+                  <a key={index} href={`/genre/${genre}`}>{`${genre}, `}</a>
                 ))}
             </li>
             <li>
@@ -512,10 +510,8 @@ const Movie = ({ film }) => {
             <li>
               <strong>محصول</strong>
               {film.country &&
-                film.country.map((country) => (
-                  <>
-                    <a href={`/country/${country}`}>{`${country}, `}</a>
-                  </>
+                film.country.map((country,index) => (
+                    <a key={index} href={`/country/${country}`}>{`${country}, `}</a>
                 ))}
             </li>
             <li>
@@ -525,10 +521,8 @@ const Movie = ({ film }) => {
             <li>
               <strong>بازیگران</strong>
               {film.actors &&
-                film.actors.map((actor) => (
-                  <>
-                    <a href={`/actor/${actor}`}>{`${actor}, `}</a>
-                  </>
+                film.actors.map((actor,index) => (
+                    <a key={index} href={`/actor/${actor}`}>{`${actor}, `}</a>
                 ))}
             </li>
             {film.ageRate && (
@@ -575,7 +569,7 @@ const Movie = ({ film }) => {
           </span>
           <DownloadLinksWraper>
             {film.downloadLinks &&
-              film.downloadLinks.map((item) => <DownloadLinks item={item} />)}
+              film.downloadLinks.map((item,index) => <DownloadLinks key={index} item={item} />)}
           </DownloadLinksWraper>
         </DownloadSection>
       ) : null}

@@ -204,7 +204,7 @@ const Carousel = () => {
             }}
           >
             {movies.map((item) => (
-              <MovieCard item={item} />
+              <MovieCard key={item._id} item={item} />
             ))}
           </OwlCarousel>
         </div>
